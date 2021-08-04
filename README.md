@@ -41,12 +41,22 @@ sail down -v // Stop the containers, remove volumes as well
 4. Once all containers are up and running (this might take several minutes to install necessary dependencies of the project)
 
 
-5. SSH into the **{service_name}_laravel.test** container and then run migration
+5. At the root directory of the application, run the following commands:
+
+````
+php artisan key:generate // To generate application key
+
+sudo chmod 775 -R storage // Give read permission to storage folder as the oauth key is stored in here
+````
+
+5. SSH into the **{service_name}_laravel.test_1** container and then run migration
 
 ````
 docker exec -it aspire-simple-api_laravel.test bash
 
 php artisan migrate
+
+php artisan passport:install // Initialize the client ID and client secret
 ````
 
 6. Refer to the API guidelines section to learn more about the usage of each API.
@@ -67,7 +77,7 @@ php artisan migrate
 
 **Unit Testing**
 
-- First SSH into the **{service_name}_laravel.test** container:
+- First SSH into the **{service_name}_laravel.test_1** container:
 
 ````
 docker exec -it aspire-simple-api_laravel.test bash
@@ -87,7 +97,17 @@ The base URL of all APIs is: http://localhost:8080/api/v1 . Except for Authentic
 
 - POST /register : Create a new user and also provide a token.
 
-- POST /login : Authenticate a user created from the registration API above. Consume the token provided from registration API to generate access token for the given user. 
+
+    + Body: x-www-form-urlencoded
+    
+    + name: Tuan, email: npatuan.uit@gmail.com, password: test, password_confirmation: test  
+
+- POST /login : Authenticate a user created from the registration API above. Generate access token for the given user. Use this access token to use the APIs below. 
+
+
+    + Body: x-www-form-urlencoded
+
+    + email: npatuan.uit@gmail.com, password: test
 
 2. Customer API: 
 
