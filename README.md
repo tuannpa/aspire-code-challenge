@@ -9,7 +9,11 @@
 ---------------
 **Project setup**
 
-1. Initialize docker containers using Laravel Sail:
+1. Run composer install to fetch all necessary Laravel dependencies. Add **--ignore-platform-reqs** flag to avoid version mismatch between packages.
+
+<code>composer install --ignore-platform-reqs</code>
+
+2. Initialize docker containers using Laravel Sail:
 
 <code>./vendor/bin/sail up</code>
 
@@ -21,7 +25,7 @@
 
 <code>sail up -d</code>
 
-2. Once all containers are up and running (might take several minutes to install necessary dependencies of the project)
+3. Once all containers are up and running (might take several minutes to install necessary dependencies of the project)
 
 
 **Phpmyadmin**
