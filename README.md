@@ -1,4 +1,4 @@
-# Aspire mini project
+# Free time coding
 
 **Prerequisites**
 
@@ -49,7 +49,7 @@ php artisan key:generate // To generate application key
 sudo chmod 775 -R storage // Give read permission to storage folder as the oauth key is stored in here
 ````
 
-5. SSH into the **{service_name}_laravel.test_1** container and then run migration
+6. SSH into the **{service_name}_laravel.test_1** container and then run migration
 
 ````
 docker exec -it aspire-simple-api_laravel.test bash
@@ -59,7 +59,7 @@ php artisan migrate
 php artisan passport:install // Initialize the client ID and client secret
 ````
 
-6. Refer to the API guidelines section to learn more about the usage of each API.
+7. Refer to the API guidelines section to learn more about the usage of each API.
 
 **Database**
 
