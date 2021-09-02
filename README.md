@@ -52,7 +52,7 @@ sudo chmod 775 -R storage // Give read permission to storage folder as the oauth
 6. SSH into the **{service_name}_laravel.test_1** container and then run migration
 
 ````
-docker exec -it aspire-simple-api_laravel.test bash
+docker exec -it simple-api_laravel.test bash
 
 php artisan migrate
 
@@ -80,7 +80,7 @@ php artisan passport:install // Initialize the client ID and client secret
 - First SSH into the **{service_name}_laravel.test_1** container:
 
 ````
-docker exec -it aspire-simple-api_laravel.test bash
+docker exec -it simple-api_laravel.test bash
 ````
 
 - Moving on to test execution, run the following command to execute both Feature test and Unit test
